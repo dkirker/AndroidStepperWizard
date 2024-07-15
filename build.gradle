@@ -1,7 +1,7 @@
 buildscript {
-    ext.gradleAndroidVersion        = '3.3.2'
+    ext.gradleAndroidVersion        = '8.2.0'
     //ext.kotlinVersion               = '1.1.4-3'
-    ext.kotlinVersion               = '1.3.0'
+    ext.kotlinVersion               = '1.5.20'
     ext.bintrayVersion              = '1.7.3'
     ext.mavenGradlePluginVersion    = '2.0'
 
@@ -12,8 +12,8 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$gradleAndroidVersion"
-        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:$bintrayVersion"
-        classpath "com.github.dcendents:android-maven-gradle-plugin:$mavenGradlePluginVersion"
+        //classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:$bintrayVersion"
+        //classpath "com.github.dcendents:android-maven-gradle-plugin:$mavenGradlePluginVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
@@ -31,7 +31,7 @@ configure(allprojects) {
     ext {
         androidMinSdkVersion 		        = 14
         androidTargetSdkVersion             = 25
-        androidCompileSdkVersion            = 25
+        androidCompileSdkVersion            = 28
         androidBuildToolsVersion            = '26.0.2'
         androidSupportLibraryVersion        = '25.4.0'
 

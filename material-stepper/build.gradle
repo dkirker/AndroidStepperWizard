@@ -1,11 +1,12 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'maven'
-apply from: '../material-stepper/code_coverage.gradle'
-apply from: '../config/quality/quality.gradle'
+//apply plugin: 'kotlin-android'
+//apply plugin: 'maven'
+//apply from: '../material-stepper/code_coverage.gradle'
+//apply from: '../config/quality/quality.gradle'
 
 android {
-    compileSdkVersion project.androidCompileSdkVersion
+    compileSdkVersion = project.androidCompileSdkVersion
+    namespace = "com.stepstone.stepper"
 
     defaultConfig {
         minSdkVersion project.androidMinSdkVersion
@@ -23,6 +24,7 @@ android {
         }
     }
 
+    /*
     testOptions {
         //workaround so that code coverage is working with Robolectric: http://stackoverflow.com/a/35769943/973379
         unitTests.all {
@@ -33,6 +35,7 @@ android {
         //fixes https://github.com/robolectric/robolectric/issues/3169#issuecomment-312046322
         unitTests.includeAndroidResources = true
     }
+    */
 
     lintOptions {
         warningsAsErrors true
@@ -41,8 +44,9 @@ android {
 }
 
 dependencies {
-    api "com.android.support:appcompat-v7:$androidSupportLibraryVersion"
+    api "androidx.appcompat:appcompat:1.0.0"
 
+    /*
     testImplementation "junit:junit:$junitVersion"
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
     testImplementation "com.squareup.assertj:assertj-android:$assertjVersion"
@@ -54,8 +58,10 @@ dependencies {
     testImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
     testImplementation "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion"
+    */
 }
 
+/*
 gradle.taskGraph.beforeTask { Task task ->
     if (task instanceof Javadoc) {
         def releaseVariant = android.libraryVariants.find { it.buildType.name == 'release' }
@@ -65,21 +71,22 @@ gradle.taskGraph.beforeTask { Task task ->
         javadocTask.classpath = files(releaseVariant.javaCompile.classpath.files) + files(ext.androidJar)
     }
 }
+*/
 
 // Log out test results to console
-tasks.matching { it instanceof Test}.all {
+/*tasks.matching { it instanceof Test}.all {
     testLogging.events = ["failed", "passed", "skipped"]
 }
 
 task ('checkWithCoverage') {
     dependsOn 'checkstyle', 'findbugs', 'pmd', 'jacocoTestReport', 'lintDebug'
-}
+}*/
 
 ext {
     artifact = POM_ARTIFACT_ID
 }
 
-apply from: '../installv1.gradle'
-apply from: '../bintrayv1.gradle'
+//apply from: '../installv1.gradle'
+//apply from: '../bintrayv1.gradle'
 
-install.mustRunAfter check
+//install.mustRunAfter check
