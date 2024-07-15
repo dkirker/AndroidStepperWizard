@@ -4,12 +4,6 @@ apply plugin: 'com.android.library'
 //apply from: '../material-stepper/code_coverage.gradle'
 //apply from: '../config/quality/quality.gradle'
 
-repositories {
-    //jcenter()
-    mavenCentral()
-    google()
-}
-
 android {
     compileSdkVersion = project.androidCompileSdkVersion
     namespace = "com.stepstone.stepper"
