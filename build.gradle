@@ -18,13 +18,13 @@ buildscript {
     }
 }
 
-allprojects {
+/*allprojects {
     repositories {
         jcenter()
         mavenCentral()
         google()
     }
-}
+}*/
 
 configure(allprojects) {
     /* Android config and dependency versions */
