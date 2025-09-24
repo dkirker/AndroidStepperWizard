@@ -21,7 +21,13 @@ android {
         }
         debug {
             testCoverageEnabled true
+            debuggable false
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21 // VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_21 // VERSION_1_8
     }
 
     /*
@@ -44,8 +50,8 @@ android {
 }
 
 dependencies {
-    api "androidx.appcompat:appcompat:1.7.0"
-    api "androidx.fragment:fragment:1.8.4"
+    api "androidx.appcompat:appcompat:1.7.1"
+    api "androidx.fragment:fragment:1.8.9"
 
     /*
     testImplementation "junit:junit:$junitVersion"
